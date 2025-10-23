@@ -1,0 +1,7 @@
+TEAM_ID=
+
+PRODUCT_NAME=Compose_concepts
+PRODUCT_BUNDLE_IDENTIFIER=com.pedromassango.compose_concepts.Compose_concepts$(TEAM_ID)
+
+CURRENT_PROJECT_VERSION=1
+MARKETING_VERSION=1.0
