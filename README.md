@@ -3,7 +3,10 @@
 
 ### Previews
 
-<video src="preview/globe.mp4" width="300" controls autoplay loop muted></video>
+
+#### Globe
+
+<img src="/preview/globe.gif" height="480">
 
 
 This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
