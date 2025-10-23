@@ -1,3 +1,11 @@
+## Random compose code snippets
+
+
+### Previews
+
+<video src="preview/globe.mp4" width="300" controls autoplay loop muted></video>
+
+
 This is a Kotlin Multiplatform project targeting Android, iOS, Desktop (JVM).
 
 * [/composeApp](./composeApp/src) is for code that will be shared across your Compose Multiplatform applications.
