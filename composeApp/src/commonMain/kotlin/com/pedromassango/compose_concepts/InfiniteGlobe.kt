@@ -34,17 +34,16 @@ import kotlin.math.cos
 import kotlin.math.sin
 import kotlin.math.sqrt
 
-/** Float versions */
 fun Float.toRadians(): Float = (this * (PI / 180.0)).toFloat()
 
 @Composable
 fun InfiniteGlobeAnimation(
     duration: Int = 12000,
     size: Dp = 450.dp,
-) {
-    val images = List(50) {
+    images: List<String> = List(100) {
         "https://i.pravatar.cc/150?u=${it}"
     }
+) {
     val spherePoints = remember {
         List(images.size) { i ->
             // Use Fibonacci sphere algo for uniform distribution
@@ -76,7 +75,7 @@ fun InfiniteGlobeAnimation(
             .draggable(
                 orientation = Orientation.Horizontal,
                 state = rememberDraggableState { d ->
-                    hState.value += (d * .15f)
+                    hState.value += (d * .1355f)
                 }
             ),
         contentAlignment = Alignment.Center
@@ -92,7 +91,7 @@ fun InfiniteGlobeAnimation(
 
             // Perspective scaling (simulate depth)
             val scale = 0.3f + 0.7f * ((z / radius + 1f) / 2f)
-            val depth = cos(scale).toFloat()
+            val depth = cos(scale)
 
             Box(
                 modifier = Modifier
@@ -108,8 +107,8 @@ fun InfiniteGlobeAnimation(
                     .size(40.dp)
             ) {
                 KamelImage(
-                    resource =  asyncPainterResource(URI(images[index])),
-                    contentDescription = "Sample Image",
+                    resource = asyncPainterResource(URI(images[index])),
+                    contentDescription = "Avatar of user $index",
                     modifier = Modifier.size(300.dp),
                     onLoading = {
                         CircularProgressIndicator()
