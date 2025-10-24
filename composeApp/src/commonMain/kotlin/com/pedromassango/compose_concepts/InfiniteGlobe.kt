@@ -39,6 +39,7 @@ fun Float.toRadians(): Float = (this * (PI / 180.0)).toFloat()
 @Composable
 fun InfiniteGlobeAnimation(
     duration: Int = 12000,
+    alphaEnabled: Boolean,
     size: Dp = 450.dp,
     images: List<String> = List(100) {
         "https://i.pravatar.cc/150?u=${it}"
@@ -100,7 +101,9 @@ fun InfiniteGlobeAnimation(
                         translationY = y
                         scaleX = (scale * 1.95f) - depth
                         scaleY = (scale * 1.95f) - depth
-                        alpha = (scale * 2) - .98f
+                        if (alphaEnabled) {
+                            alpha = (scale * 2) - .98f
+                        }
                     }
                     .zIndex(z)
                     .clip(CircleShape)

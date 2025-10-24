@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.safeContentPadding
 import androidx.compose.material3.Button
+import androidx.compose.material3.IconToggleButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.*
@@ -23,6 +24,7 @@ import compose_concepts.composeapp.generated.resources.compose_multiplatform
 @Composable
 @Preview
 fun App() {
+    var alphaEnabled by remember { mutableStateOf(false) }
     MaterialTheme {
         Column(
             modifier = Modifier
@@ -30,7 +32,16 @@ fun App() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            InfiniteGlobeAnimation()
+            InfiniteGlobeAnimation(
+                alphaEnabled = alphaEnabled
+            )
+
+            IconToggleButton(
+                checked = alphaEnabled,
+                onCheckedChange = {alphaEnabled = it}
+            ) {
+                Text(alphaEnabled.toString())
+            }
         }
     }
 }
